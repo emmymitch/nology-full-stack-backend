@@ -23,9 +23,10 @@ public class MythologyService {
     //Add new
     public void addNewMythology(Mythology mythology) {
         if (mythology.getEnglishName() == null
+            || mythology.getCreatedBy() == null
             || mythology.getMajorDomains() == null
             || mythology.getDescription() == null){
-            throw new IllegalArgumentException("Invalid submission! Must contain: English name, major domains, description.");
+            throw new IllegalArgumentException("Invalid submission! Must contain: English name, entry author, major domains, description.");
         }
 
         if (mythology.getDescription().length() > 255){
@@ -34,6 +35,18 @@ public class MythologyService {
 
         mythRepo.save(mythology);
     }
+
+    //Update existing
+//    public void updateMythology(Mythology oldMyth, Mythology newMyth){
+//        //If not null, update param
+//        if (newMyth.getEnglishName() != null){
+//            mythRepo.updateEnglishName(newMyth.getEnglishName(), oldMyth.getId());
+//        }
+//
+//        if (newMyth.getGreekName() != null){
+//            mythRepo.updateGreekName(newMyth.getGreekName(), oldMyth.getId());
+//        }
+//    }
 
     //Delete by id
     public boolean deleteById(String id){

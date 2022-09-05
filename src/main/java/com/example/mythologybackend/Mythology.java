@@ -1,12 +1,10 @@
 package com.example.mythologybackend;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Mythology {
@@ -19,8 +17,10 @@ public class Mythology {
 
     private String englishName;
     private String greekName;
-    private ArrayList<String> majorDomains;
-    private ArrayList<String> identifiers;
+    @ElementCollection
+    private List<String> majorDomains;
+    @ElementCollection
+    private List<String> identifiers;
     private String description;
 
     public Mythology () {
@@ -71,7 +71,7 @@ public class Mythology {
         this.greekName = greekName;
     }
 
-    public ArrayList<String> getMajorDomains() {
+    public List<String> getMajorDomains() {
         return majorDomains;
     }
 
@@ -79,7 +79,7 @@ public class Mythology {
         this.majorDomains = majorDomains;
     }
 
-    public ArrayList<String> getIdentifiers() {
+    public List<String> getIdentifiers() {
         return identifiers;
     }
 
