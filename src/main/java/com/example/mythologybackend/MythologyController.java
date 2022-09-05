@@ -42,4 +42,16 @@ public class MythologyController {
         return ResponseEntity.status(HttpStatus.OK).body(mythService.getAll());
     }
 
+
+    @DeleteMapping("/myth/{id}")
+    public ResponseEntity<String> deleteMyth(@PathVariable String id) {
+        boolean isDeleted = mythService.deleteById(id);
+
+        if (!isDeleted) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Entry with id "+id+" not found!");
+        } else {
+            return ResponseEntity.status(HttpStatus.OK).body("Myth deleted successfully");
+        }
+    }
+
 }
