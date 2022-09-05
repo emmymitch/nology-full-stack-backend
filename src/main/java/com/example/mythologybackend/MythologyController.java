@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class MythologyController {
 
@@ -40,6 +40,23 @@ public class MythologyController {
     @GetMapping("/myths")
     public ResponseEntity<List<Mythology>> getAll() {
         return ResponseEntity.status(HttpStatus.OK).body(mythService.getAll());
+    }
+
+    @GetMapping("/myth/{id}")
+    public ResponseEntity<Mythology> getById(@PathVariable String id){
+        Mythology myth = mythService.getById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(myth);
+    }
+
+    @GetMapping("/myth")
+    public ResponseEntity<List<Mythology>> getByEnglishName(@RequestParam String englishName){
+        List<Mythology> myths = mythService.getByEnglishName(englishName);
+
+        if (myths.size() == 0){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(myths);
     }
 
 
