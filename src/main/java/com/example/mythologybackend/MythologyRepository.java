@@ -13,14 +13,4 @@ public interface MythologyRepository extends JpaRepository<Mythology, Integer> {
     List<Mythology> findMythologyByEnglishName(String englishName);
     List<Mythology> findMythologyByGreekName(String greekName);
 
-
-//    @Modifying
-//    @Query("UPDATE Mythology m SET m.englishName = :englishName WHERE m.id = :id")
-//    void updateEnglishName(String englishName, int id);
-//
-//    @Modifying
-//    @Query("UPDATE Mythology m SET m.greekName = :greekName WHERE m.id = :id")
-//    void updateGreekName(String greekName, int id);
-
-
 }

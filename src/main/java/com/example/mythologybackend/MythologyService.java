@@ -37,16 +37,10 @@ public class MythologyService {
     }
 
     //Update existing
-//    public void updateMythology(Mythology oldMyth, Mythology newMyth){
-//        //If not null, update param
-//        if (newMyth.getEnglishName() != null){
-//            mythRepo.updateEnglishName(newMyth.getEnglishName(), oldMyth.getId());
-//        }
-//
-//        if (newMyth.getGreekName() != null){
-//            mythRepo.updateGreekName(newMyth.getGreekName(), oldMyth.getId());
-//        }
-//    }
+    public void updateMythology(Mythology newMyth) {
+        //already has id so will just update
+        mythRepo.save(newMyth);
+    }
 
     //Delete by id
     public boolean deleteById(String id){
