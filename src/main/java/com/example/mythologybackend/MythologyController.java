@@ -73,6 +73,11 @@ public class MythologyController {
         return ResponseEntity.status(HttpStatus.OK).body(myths);
     }
 
+    @GetMapping("/random")
+    public ResponseEntity<Mythology> getRandom(){
+        return ResponseEntity.status(HttpStatus.OK).body(mythService.getRandomMythology());
+    }
+
 
     @DeleteMapping("/myth/{id}")
     public ResponseEntity<String> deleteMyth(@PathVariable String id) {

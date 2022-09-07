@@ -38,7 +38,7 @@ public class MythologyService {
 
     //Update existing
     public void updateMythology(Mythology newMyth) {
-        //already has id so will just update
+        //already has id so will just update rather than save identical copy
         mythRepo.save(newMyth);
     }
 
