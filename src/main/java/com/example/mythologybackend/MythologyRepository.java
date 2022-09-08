@@ -12,5 +12,7 @@ public interface MythologyRepository extends JpaRepository<Mythology, Integer> {
 
     List<Mythology> findMythologyByEnglishName(String englishName);
     List<Mythology> findMythologyByGreekName(String greekName);
+    List<Mythology> findMythologyByMajorDomains(String domain);
+    List<Mythology> findMythologyByIdentifiers(String identifier);
 
 }

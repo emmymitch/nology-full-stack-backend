@@ -76,7 +76,15 @@ public class MythologyService {
     }
 
     //Get by domain
+    public List<Mythology> getByDomain(String domain){
+        return mythRepo.findMythologyByMajorDomains(domain);
+    }
+
     //Get by identifier
+    public List<Mythology> getByIdentifier(String identifier){
+        return mythRepo.findMythologyByIdentifiers(identifier);
+    }
+
 
     //Get random
     public Mythology getRandomMythology() {
