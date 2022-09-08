@@ -21,6 +21,7 @@ public class Mythology {
     private List<String> majorDomains;
     @ElementCollection
     private List<String> identifiers;
+    @Column(length = 2040)
     private String description;
 
     public Mythology () {
